@@ -2,7 +2,7 @@ from twilio.rest import Client
 from heavy_reminder.wsgi import *
 from mainapp.models import Task, Reminder
 from datetime import datetime
-from secrets import *
+from heavy_reminder.secrets import *
 
 account_sid = ACCOUNT_SID
 auth_token = AUTH_TOKEN
