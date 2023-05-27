@@ -5,3 +5,5 @@ AUTH_TOKEN = "<Your Twilio Auth Token>"
 
 TWILIO_NUMBER = "<Twilio Number>"
 MY_NUMBER = "<Your number>"
+
+SECRET_KEY = "Your django secret"
