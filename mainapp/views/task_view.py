@@ -1,18 +1,18 @@
-from django.shortcuts import render 
-from django.http import JsonResponse
-from .models import Task, Priority, Repeat, TaskUser, Reminder
-import json
-from django.views.decorators.csrf import csrf_exempt
 import datetime
-from rest_framework.decorators import api_view
+import json
+
+from django.http import JsonResponse
+from mainapp.models import *
+from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
+from django.views import View
 
-# Create your views here.
-		
 
-@csrf_exempt
-def get_create_task_api(request):
-	if request.method == "GET":
+from django.utils.decorators import method_decorator
+
+@method_decorator(csrf_exempt, name='dispatch')
+class TaskView(View):
+	def get(self, request):
 		tasks = Task.objects.all()
 
 		data = {
@@ -33,7 +33,7 @@ def get_create_task_api(request):
 
 		return JsonResponse(data)
 
-	if request.method == "POST":
+	def post(self, request):
 		data = json.loads(request.body)
 		name = data["name"]
 		start_time = data["start_time"]
@@ -57,10 +57,7 @@ def get_create_task_api(request):
 
 		return JsonResponse({"message":"success"})
 
-
-@csrf_exempt
-def update_delete_task_api(request, id):
-	if request.method == "PUT":
+	def put(self, request, task_id):
 		data = json.loads(request.body)
 		name = data["name"]
 		start_time = data["start_time"]
@@ -74,7 +71,7 @@ def update_delete_task_api(request, id):
 		repeat = Repeat.objects.get(label=repeat)
 		task_user = TaskUser.objects.get(id=user_id)
 
-		task = Task.objects.get(id=id)
+		task = Task.objects.get(id=task_id)
 
 		task.name = name
 		task.status = status
@@ -87,35 +84,8 @@ def update_delete_task_api(request, id):
 
 		return JsonResponse({"message": "success"})
 
-	if request.method == "DELETE":
-		task = Task.objects.get(id=id)
+	def delete(self, request, task_id):
+		task = Task.objects.get(id=task_id)
 
 		task.delete()
 		return JsonResponse({"message": "task deleted"})
-	
-
-@csrf_exempt
-def search_task_api(request):
-	if request.method == "POST":
-		data = json.loads(request.body)
-		task_name = data["task_name"]
-		tasks = Task.objects.filter(name__icontains=task_name)
-
-		data = {
-			"tasks": []
-		}
-
-		for task in tasks:
-			data["tasks"].append(
-					{
-						"name": task.name,
-						"id": task.id,
-						"start_time": task.start_time,
-						"duration": task.duration,
-						"status": task.status,
-						"priority": str(task.priority),
-						"repeat": str(task.repeat)
-					}
-				)
-
-		return JsonResponse(data)
