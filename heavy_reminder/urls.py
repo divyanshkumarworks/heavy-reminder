@@ -23,5 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/task', TaskView.as_view(), name="create-task-api"),
     path('api/task/<int:task_id>', TaskView.as_view(), name="update-delete-task-api"),
-    path('api/search', views.search_task_api, name="search-task-api")
+    path('api/search', views.search_task_api, name="search-task-api"),
+    path('twilio/voice/<int:reminder_id>', views.voice, name="twilio-voice"),
+    path('twilio/process_input/<int:reminder_id>', views.process_input, name="twilio-process-input")
 ]
+
+

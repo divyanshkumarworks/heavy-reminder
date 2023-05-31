@@ -3,7 +3,7 @@ from mainapp.models import Task
 import json
 from django.views.decorators.csrf import csrf_exempt
 import datetime
-from django.db import transaction
+
 	
 
 @csrf_exempt
