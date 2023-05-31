@@ -7,7 +7,6 @@ from django.db import transaction
 
 @csrf_exempt
 def process_input(request, reminder_id):
-    print(request.POST)
     
     response = VoiceResponse()
 
