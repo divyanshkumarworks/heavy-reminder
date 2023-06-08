@@ -1,10 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class TaskUser(models.Model):
-	name = models.CharField(max_length=20)
-	phone_no = models.IntegerField(unique=True)
-	guardian1_no = models.IntegerField()
-	guardian2_no = models.IntegerField()
+class TaskUser(AbstractUser):
+	phone_no = models.CharField(max_length=20)
 
 	def __str__(self):
-		return f"{self.name}"
+		return f"{self.phone_no}"
