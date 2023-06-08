@@ -5,6 +5,8 @@ from mainapp.models import *
 from datetime import datetime, timedelta
 from django.db import transaction
 
+import pytz
+
 @csrf_exempt
 def process_input(request, reminder_id):
     
@@ -37,8 +39,10 @@ def process_input(request, reminder_id):
             response.say('you have set your task on hold')
             response.say('setting reminder with new priority')
 
-            new_time = datetime.now() + timedelta(minutes = 5)
+            kolkata_tz = pytz.timezone('Asia/Kolkata')
+            new_time = datetime.now(kolkata_tz) + timedelta(minutes = 5)
             formatted_time = new_time.strftime('%Y-%m-%d %H:%M:%S')
+            
             priority += 1
             max_priority = max(max_priority, priority)
             new_priority = Priority.objects.get(id=max_priority)

@@ -4,6 +4,8 @@ from mainapp.models import Task, Reminder
 from datetime import datetime
 from heavy_reminder.secrets import *
 
+import pytz
+
 print(f"starting reminder script at {datetime.now()}")
 
 account_sid = ACCOUNT_SID
@@ -15,15 +17,15 @@ my_number = MY_NUMBER
 client = Client(account_sid, auth_token)
 
 reminders = Reminder.objects.filter(status="PENDING")
-
-current_datetime = datetime.now().strftime("%m/%d/%Y %H:%M")
+tz_kt = pytz.timezone('Asia/Kolkata')
+current_datetime = datetime.now(tz_kt).strftime("%m/%d/%Y %H:%M")
 
 for reminder in reminders:
 	time = reminder.time.strftime("%m/%d/%Y %H:%M")
 	print(f"reminder_date = {time}")
 	if current_datetime == time:
 		message = client.calls.create(
-			url=f"https://5bac-2401-4900-1c33-9bf-912c-1a69-2518-17b8.ngrok-free.app/twilio/voice/{reminder.id}",	
+			url=f"https://0007-2401-4900-1c33-9bf-912c-1a69-2518-17b8.ngrok-free.app/twilio/voice/{reminder.id}",	
 			from_=twilio_number,
 			to=my_number,
 			method="POST"
