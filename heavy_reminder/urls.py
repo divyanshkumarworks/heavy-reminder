@@ -33,7 +33,6 @@ urlpatterns = [
     path('register', views.register, name='user-register'),
     path('profile', views.profile, name='user-profile'),
     path('api/get/otp', views.get_otp, name='get-otp'),
-    path('api/register/user', views.register_api, name='user-register-api'),
     path('api/login', views.login_api, name='user-login'),
     path('api/task', TaskView.as_view(), name='get-create-task-api'),
     path('api/task/<int:task_id>', TaskView.as_view(), name='update-delete-task-api'),

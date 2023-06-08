@@ -1,0 +1,40 @@
+div.add-task{
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+}
+
+.bi-x-lg{
+  position: absolute;
+  right: 3%;
+}
+
+div#add-task-container{
+  position: absolute;
+  right: 0;
+  top: 24px;
+  height: 729px;
+  z-index: 1;
+  visibility: hidden;
+  transition: visibility 2s;
+}
+
+.dropdown{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.add-task-div{
+  position: absolute;
+  top: 5%;
+
+}
+
+.start_time_div{
+  margin-left: 20px;
+}
+
+.custom_selected{
+  background-color: pink;
+}

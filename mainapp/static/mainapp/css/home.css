@@ -1,0 +1,38 @@
+@import 'main.css';
+h4{
+	font-family: 'Varela Round', sans-serif;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+div.form-control{
+	margin: auto;
+	width: 80%;
+}
+
+img{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 5%;
+  top: 0;
+  border-radius: 50%;
+}
+
+div#profile-name{
+  color: black;
+  position: absolute;
+  top: 1%;
+  right: 17%;
+}
+
+#scroll_div::-webkit-scrollbar {
+  display: none;
+}
