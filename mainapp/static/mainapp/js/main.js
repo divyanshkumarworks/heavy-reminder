@@ -11,11 +11,9 @@ fetch("/api/task")
 	})
 
 function addTask(name, task_id) {		
-	var html = `<div class="card">
-				  <div class="card-body">
-				    <a href="/update/task/` + task_id + `">` + name + `</a>
-				    <a onclick="deleteTask(` + task_id + `)"><i class="bi bi-x-lg"></i></a>	
-				  </div>
+	var html = `<div class="card shadow m-3 mb-3 border-0" style="transition: transform 200ms ease 0s;">
+				    <a href="/update/task/` + task_id + `"><div class="card-body">` + name + `</div></a>
+				    <a onclick="deleteTask(` + task_id + `)" style="position:absolute;z-index:2;right:5%; top:30%;"><i class="bi bi-x-lg"></i></a>	
 				</div>`
 	task_list_div = document.getElementById("today_list");
 	task_list_div.innerHTML += html;
@@ -36,28 +34,24 @@ document.getElementById("form1")
     	body: JSON.stringify({
     		task_name: input_value
     	})
-	}).then(res => {
-		if (res.ok) {
-			alert('successful');
-		}
-		else{
-			alert('not found');
-		}
-	})
-	.then(data => {
-		tasks = data["tasks"]
-		console.log(tasks)
-		for(let i = 0; i < tasks.length; i++) {
-			const item = tasks[i].name;
-			filterTask(item);
-		}
-	})
+	}).then(res => res.json())
+		.then(data => {
+			tasks = data["tasks"]
+			console.log(tasks)
+
+			for(let i = 0; i < tasks.length; i++) {
+				const item = tasks[i].name;
+				const id = tasks[i].id;
+				filterTask(item, id);
+			}
+		})
  });
 
-function filterTask(name) {		
-	var html = `<div class="card">
+function filterTask(name, task_id) {		
+	var html = `<div class="card shadow m-3 mb-3 ">
 				  <div class="card-body">
-				    <a href="#">` + name + `</a>
+				    <a href="/update/task/` + task_id + `">` + name + `</a>
+				    <a onclick="deleteTask(` + task_id + `)"><i class="bi bi-x-lg"></i></a>	
 				  </div>
 				</div>`
 	task_list_div = document.getElementById("today_list");
@@ -75,7 +69,7 @@ function deleteTask(task_id) {
 			message = data["message"]
 			alert(message);
 		})
-
+	window.location.href = '/';
 }
 
 function my_info() {
@@ -91,7 +85,3 @@ function my_info() {
 
 my_info();
 
-function showAddTask()
-{
-  document.getElementById('add-task-container').style.visibility = "visible";
-}
