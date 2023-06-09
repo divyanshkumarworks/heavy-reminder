@@ -12,7 +12,10 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/home.css' %}">
 
@@ -20,74 +23,84 @@
 <body>
 	<div class="container-fluid">
 	  <div class="row">
-	    <div class="col-3 mt-4 bg-success">
+	    <div id="home-column1" class="col-3 mt-4">
 	    	<h3>Heavy Reminder</h3>
 	    </div>
-	    <div class="col-6 mt-4" style="height: 729px;">
+	    <div id="home-column2" class="col-6 mt-4">
 	    	<div class="form-outline">
-			  <input type="search" id="form1" class="form-control form-control-lg" placeholder="Search for Task" aria-label="Search" />
+			  <input type="search" id="form1" class="form-control shadow-sm form-control-lg" placeholder="Search for Task" aria-label="Search" />
 			</div>
-			<div class="mt-4">
+			<div class="m-2">
 			  <h2>{{ date }}</h2>
 			  <p>{{ month }}</p>
 			</div>
 			<div id="scroll_div" style="overflow-y: scroll;">
 				<h2>Today's Task</h2>
 				<div id="today_list" class="container-fluid">
+
 				</div>
 			</div>
 	    </div>
-	    <div class="col-3 mt-4 bg-success">
-	    	<nav>
-	    		<div id="profile-name">
-	   				
-	    		</div>
-	    		<div class="profile-logo">
-	    			<img src="{% static 'mainapp/images/mosh.jpg' %}">
-	    		</div>
-	    	</nav>
+	    <div id="home-column3" class="col-3 mt-4">
+			<div id="profile-name">
+			
+			</div>
+			<div id="profile-dropdown" class="dropdown">
+			    <a class=" dropdown-toggle"  id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			      <img src="{% static 'mainapp/images/profile.png' %}" alt="Profile Image" class="profile-img">
+			    </a>
+			    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+			      <a class="dropdown-item" href="{% url 'user-profile' %}">Profile</a>
+			      <a class="dropdown-item" href="#">Settings</a>
+			      <div class="dropdown-divider"></div>
+			      <a class="dropdown-item" href="#" onclick="deleteCookie()">Logout</a>
+			    </div>
+		  	</div>
 	    	<div class="add-task">
-	   			<button type="button" class="btn btn-success" onclick="showAddTask()">Add Task</button>
+	   			<a id="showFilePanel" type="button" class="shadow btn bg-light" >Add Task</a>
 	   		</div>
+
+	   		<div id="add-task-container" class="dismiss bg-light border">
+		  		<a id="hideFilePanel" type="button"><i class="bi cancel-task bi-x-lg" style=""></i></a>
+		      <div class="add-task-div">
+		        <h3>
+		          <div class="form-outline">
+		            <input type="search" id="input_task_name" class="form-control form-control-lg" placeholder="Task Name" aria-label="Search" />
+		          </div>
+		        </h3>
+		        <div class="dropdown">
+		            <a class="btn btn-secondary dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+		              <span id="selected-repeat">Repeat</span><span class="caret"></span></a>
+		          <ul class="dropdown-menu" id="dropdown-repeat">
+		            <li><a class="dropdown-item" href="#">Daily</a></li>
+		            <li><a class="dropdown-item" href="#">Weekly</a></li>
+		            <li><a class="dropdown-item" href="#">Hourly</a></li>
+		          </ul>
+		        </div>
+		        <div class="dropdown">
+		            <a class="btn btn-secondary dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+		              <span id="selected-priority">Priority</span><span class="caret"></span></a>
+		          <ul class="dropdown-menu" id="dropdown-priority">
+		            <li><a class="dropdown-item" href="#">Low</a></li>
+		            <li><a class="dropdown-item" href="#">Medium</a></li>
+		            <li><a class="dropdown-item" href="#">High</a></li>
+		            <li><a class="dropdown-item" href="#">Heavy</a></li>
+		          </ul>
+		        </div>
+		        <div class="start_time_div">
+		          <label for="birthdaytime">start time:</label>
+		          <input type="datetime-local" id="start_time" name="starttime">
+		        </div>
+		      </div>
+		      <div class="add-task">
+		        <button type="button" class="btn btn-success" onclick="createTask()">Create Task</button>
+		      </div>
+		    </div>
+
 	    </div>
 	  </div>
 	</div>
 
-	<div id="add-task-container" class="col-sm-4 container-fluid bg-warning">
-      <div class="add-task-div" style="width: 90%;">
-        <h3>
-          <div class="form-outline">
-            <input type="search" id="input_task_name" class="form-control form-control-lg" placeholder="Task Name" aria-label="Search" />
-          </div>
-        </h3>
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <span id="selected-repeat">Repeat</span><span class="caret"></span></a>
-          <ul class="dropdown-menu" id="dropdown-repeat">
-            <li><a class="dropdown-item" href="#">Daily</a></li>
-            <li><a class="dropdown-item" href="#">Weekly</a></li>
-            <li><a class="dropdown-item" href="#">Hourly</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <span id="selected-priority">Priority</span><span class="caret"></span></a>
-          <ul class="dropdown-menu" id="dropdown-priority">
-            <li><a class="dropdown-item" href="#">Low</a></li>
-            <li><a class="dropdown-item" href="#">Medium</a></li>
-            <li><a class="dropdown-item" href="#">High</a></li>
-            <li><a class="dropdown-item" href="#">Heavy</a></li>
-          </ul>
-        </div>
-        <div class="start_time_div">
-          <label for="birthdaytime">start time:</label>
-          <input type="datetime-local" id="start_time" name="starttime">
-        </div>
-      </div>
-      <div class="add-task">
-        <button type="button" class="btn btn-success" onclick="createTask()">Add Task</button>
-      </div>
-    </div>
 	{% block content %}{% endblock %}
 
 

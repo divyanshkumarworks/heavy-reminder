@@ -1,6 +1,16 @@
 @import 'main.css';
-h4{
-	font-family: 'Varela Round', sans-serif;
+h3{
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h5{
+  width: 150px;
+}
+
+a:hover, i:hover {
+  text-decoration: none;
+  color: grey;
+  font-size: 17px;
 }
 
 .form-control:focus {
@@ -17,22 +27,140 @@ div.form-control{
 	width: 80%;
 }
 
-img{
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#profile-dropdown{
   position: absolute;
-  width: 40px;
-  height: 40px;
-  right: 5%;
-  top: 0;
+  top: -25px;
+  right: -4%;
+}
+
+.add-task-div{
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+}
+
+.mt-4{
+  height: 729px;
+}
+
+img{
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
-div#profile-name{
-  color: black;
+#home-column3{
+  position: relative;
+  padding: 0; 
+  margin-top: 0;
+  overflow: hidden;
+}
+
+#profile-name{
   position: absolute;
   top: 1%;
-  right: 17%;
+  left: 53%;
+  width: 150px;
+
+}
+
+#dropdown_a{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 0;
+}
+
+div.profile-detail{
+  position: absolute;
+  left: 0;
+}
+
+div#nav-div{
+  position: absolute; 
+  right: 2%;
+  top: 0;
 }
 
 #scroll_div::-webkit-scrollbar {
   display: none;
+}
+
+.bi{
+  position: absolute;
+  top: 3%;
+  right: 6%;
+  -webkit-text-stroke: 1px;
+}
+
+.cancel-task:hover {
+  color: silver;
+}
+
+#dropdown-logo{
+  width: 10%;
+}
+
+div#add-task-container{
+  
+  height: 729px;
+  z-index: 999;
+  display: none;
+  overflow: hidden;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+
+.selected {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+.dismiss {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+  }
 }
