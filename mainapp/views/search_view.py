@@ -28,6 +28,7 @@ def search_task_api(request):
 				"tasks": []
 			}
 
+
 			for task in tasks:
 				data["tasks"].append(
 						{
@@ -39,6 +40,8 @@ def search_task_api(request):
 							"repeat": str(task.repeat)
 						}
 					)
+			print("enter this loop")
+
 
 			return JsonResponse(data)
 		else:
