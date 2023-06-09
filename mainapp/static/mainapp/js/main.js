@@ -85,3 +85,35 @@ function my_info() {
 
 my_info();
 
+$('#showFilePanel').click(function(event) {
+  if ($('#add-task-container').hasClass('dismiss')) {
+    $('#add-task-container').removeClass('dismiss').addClass('selected').show();
+  }
+  event.preventDefault();
+});
+
+$('#hideFilePanel').click(function(event) {
+  if ($('#add-task-container').hasClass('selected')) {
+    $('#add-task-container').removeClass('selected').addClass('dismiss');
+  }
+  event.preventDefault();
+});
+
+function deleteCookie() {
+		document.cookie = "jwt_token" + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		window.location.href = '/';
+}
+
+window.addEventListener('click', function(e){
+	
+	if (document.getElementById('home-column2').contains(e.target)){
+  	if ($('#add-task-container').hasClass('selected')) {
+    	$('#add-task-container').removeClass('selected').addClass('dismiss');
+	  }
+  }
+  if (document.getElementById('home-column1').contains(e.target)){
+  	if ($('#add-task-container').hasClass('selected')) {
+    	$('#add-task-container').removeClass('selected').addClass('dismiss');
+	  }
+  } 
+})
