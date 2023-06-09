@@ -29,10 +29,10 @@ def get_otp(request):
 		OTPS[user_number] = otp
 		print(otp)
 		
-		# message = client.messages.create(
-		# 	body=f"you otp for heavy reminder is {otp}",
-		# 	from_=twilio_number,
-		# 	to=my_number,
-		# )
+		message = client.messages.create(
+			body=f"you otp for heavy reminder is {otp}",
+			from_=twilio_number,
+			to=my_number,
+		)
 		print("otp sent to user")
 		return JsonResponse({"OTPS": OTPS})
