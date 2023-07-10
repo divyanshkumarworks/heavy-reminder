@@ -13,6 +13,8 @@ This fully functional webapp allows you to create tasks and set a reminder for i
 - [Django](https://www.djangoproject.com/start/)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
+Please note that using the application will incur in charges for Programmable Voice minutes.
+
 ## Screenshots
 
 📌 Login Page
@@ -76,3 +78,7 @@ it will create the database schemas, tables and relationships.
 python manage.py runserver
 ```
 this command will run the local server. In addition, An ngrok server is required so that Twilio can locate your server and invoke the webhooks on every call status update.
+
+### Other
+
+- For local development the application uses an [ngrok server](https://ngrok.com/). Without it, Twilio cannot invoke the call-status-update webhook that runs from your local server. Ngrok [enforces a limit of 40 connections per minute](https://ngrok.com/pricing#:~:text=Per%20user%20limits%3A,-5%20reserved%20domains&text=2%20online%20ngrok%20processes,120%20connections%2Fminute) so be mindful about this limitation.
