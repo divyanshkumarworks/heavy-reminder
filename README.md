@@ -20,42 +20,45 @@ This fully functional webapp allows you to create tasks and set a reminder for i
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites 📋
-
-1. Clone this repository
-2. Install dependencies
-   
-   ```bash
-   pip3 install -r requirements.txt
-   ```
-
-Additionally, you'll need a [Supabase](https://supabase.com/) account for:
-
-- Creating a new Supabase project
-- Supabase Project API key
-- Supabase Project URL
+1. first of all, You need to install python for running pip command  
 
 ### Local Development
 1. Clone the repository
-   ```bash
-   
-   ```
+```bash
+https://github.com/divyanshkumarworks/heavy-reminder.git
+```
 
 2. Install Dependencies
-$ npm install
+```bash
+pip3 install -r requirements.txt
+```
+3. This application uses Twilio credentials to create the Call resources. you'll need a [Twilio](https://www.twilio.com/en-us) account for:
+- account sid
+- auth token
+- twilio number
 
-This application uses Twilio credentials to create the Call resources. It also requires a PostgreSQL database for storing the notifications and related call data. Add the following parameters to your .env file (use .env.example as a reference):
+4. After creating an account in twilio create a secret.py file inside folder heavy reminder and add following credentials: 
 
-PASSCODE=XXXXXX
-DATABASE_URL=postgres://username:password@hostname:port/dbname
-ACCOUNT_SID=ACXXXXXXXXXXXXXXXXXXXXXXX
-AUTH_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXX
-Please note that you may need to install PostgreSQL and start it up or leverage some DBaaS provider to create a free cloud database (such as https://www.elephantsql.com)
+```bash
+ACCOUNT_SID = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+AUTH_TOKEN = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-3. Install Dependencies
-$ npm start
+TWILIO_NUMBER = XXXXXXXXXX
+MY_NUMBER = XXXXXXXXXXX
 
-The first time you run the app, it will create the database schemas, tables and relationships. In addition, this command will run the NodeJS server and will expose the ReactJS application via ngrok. An ngrok server is required so that Twilio can locate your server and invoke the webhooks on every call status update.
+(your secret key stored inside settings.py)
+DJANGO_SECRET_KEY = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+5. Run database migrations using:
+```bash
+python manage.py makemigrations
 
-Alternatively, you can start UI and Server separately for a more granular development experience:
+python manage.py migrate
+```
+it will create the database schemas, tables and relationships. 
 
-$ npm run start:ui $ npm run start:server
+6. And then run:
+```bash
+python manage.py runserver
+```
+this command will run the local server. In addition, An ngrok server is required so that Twilio can locate your server and invoke the webhooks on every call status update.
