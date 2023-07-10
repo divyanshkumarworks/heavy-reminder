@@ -13,6 +13,20 @@ This fully functional webapp allows you to create tasks and set a reminder for i
 - [Django](https://www.djangoproject.com/start/)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
+## Screenshots
+
+📌 Login Page
+
+![Screenshot (40)](https://github.com/divyanshkumarworks/watch-with-me/assets/134360630/9b6fd51a-c978-4c7a-bca3-fb7d98481b5c)
+
+📌 Home Page
+
+![Screenshot (39)](https://github.com/divyanshkumarworks/HowWeLookTogether/assets/134360630/abacbc48-8846-4e07-9ded-bde3c3acec77)
+
+📌 Add Task Page
+
+![Screenshot (42)](https://github.com/divyanshkumarworks/watch-with-me/assets/134360630/71b977f7-52f0-49cb-af99-72b088bc4479)
+
 
 ## Getting Started: 🚀
 
