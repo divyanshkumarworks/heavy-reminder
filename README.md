@@ -19,10 +19,11 @@ This fully functional webapp allows you to create tasks and set a reminder for i
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites 📋
-1. first of all, You need to install python for running pip command  
+1. first of all, You need to install python for running pip command
+2. create a project folder  
 
 ### Local Development
-1. Clone the repository
+1. Clone the repository inside this folder
 ```bash
 https://github.com/divyanshkumarworks/heavy-reminder.git
 ```
