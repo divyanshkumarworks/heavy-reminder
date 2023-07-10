@@ -9,7 +9,7 @@ This fully functional webapp allows you to create tasks and set a reminder for i
 ### Technology stack
 
 - [Python](https://www.python.org/)
-- [](https://www.typescriptlang.org/)
+- [Twilio](https://www.twilio.com/docs/voice)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [NestJS](https://nestjs.com/)
 - [PostgreSQL](https://www.postgresql.org/)
