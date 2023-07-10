@@ -77,7 +77,9 @@ it will create the database schemas, tables and relationships.
 ```bash
 python manage.py runserver
 ```
-this command will run the local server. In addition, An ngrok server is required so that Twilio can locate your server and invoke the webhooks on every call status update.
+this command will run the local server. 
+
+In addition, An ngrok server is required so that Twilio can locate your server and invoke the webhooks on every call status update.
 
 ### Other
 
