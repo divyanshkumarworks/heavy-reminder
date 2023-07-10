@@ -10,9 +10,8 @@ This fully functional webapp allows you to create tasks and set a reminder for i
 
 - [Python](https://www.python.org/)
 - [Twilio](https://www.twilio.com/docs/voice)
+- [Django](https://www.djangoproject.com/start/)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-- [NestJS](https://nestjs.com/)
-- [PostgreSQL](https://www.postgresql.org/)
 
 
 ## Getting Started: 🚀
