@@ -1,7 +1,7 @@
 # heavy-reminder
 
 ## About
-This is webbase refernce app built in Django and Javascript demonstrates how to leverage [Twilio Programmable Voice](https://www.twilio.com/voice) and [Twilio SDKs](https://www.twilio.com/docs/libraries) to create a Task reminder system to remind people about the tasks by calling to your customers to deliver time-sensitive messages. This app is helpful for people who need to be reminding about the tasks.
+This is a webbase reference app built in Django and Javascript demonstrates how to leverage [Twilio Programmable Voice](https://www.twilio.com/voice) and [Twilio SDKs](https://www.twilio.com/docs/libraries) to create a Task reminder system to remind people about the tasks by calling to your customers to deliver time-sensitive messages. This app is helpful for people who need to be reminding about the tasks.
 
 ### How it works
 This fully functional webapp allows you to create tasks and set a reminder for it. Users can sign-up via mobile number, create tasks and set a reminder for a specified date and time, the app then calls the user on their phone to remind about the task. 
