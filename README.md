@@ -6,16 +6,7 @@ This is a webapp built in Django and Javascript demonstrates how to leverage [Tw
 ### How it works
 This fully functional webapp allows you to create tasks and set a reminder for it. Users can sign-up via mobile number, create tasks and set a reminder for a specified date and time, the app then calls the user on their phone to remind about the task. 
 
-### Technology stack
-
-- [Python](https://www.python.org/)
-- [Twilio](https://www.twilio.com/docs/voice)
-- [Django](https://www.djangoproject.com/start/)
-- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-
-Please note that using the application will incur in charges for Programmable Voice minutes.
-
-## Screenshots
+## Preview
 
 📌 Login Page
 
@@ -28,6 +19,15 @@ Please note that using the application will incur in charges for Programmable Vo
 📌 Add Task Page
 
 ![Screenshot (42)](https://github.com/divyanshkumarworks/watch-with-me/assets/134360630/71b977f7-52f0-49cb-af99-72b088bc4479)
+
+### Technology stack
+
+- [Python](https://www.python.org/)
+- [Twilio](https://www.twilio.com/docs/voice)
+- [Django](https://www.djangoproject.com/start/)
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+Please note that using the application will incur in charges for Programmable Voice minutes.
 
 
 ## Getting Started: 🚀
